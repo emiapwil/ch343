@@ -30,7 +30,11 @@
 #undef VERBOSE_DEBUG
 
 #include <asm/byteorder.h>
+#if __has_include(<asm/unaligned.h>)
 #include <asm/unaligned.h>
+#else
+#include <linux/unaligned.h>
+#endif
 #include <linux/errno.h>
 #include <linux/idr.h>
 #include <linux/init.h>
